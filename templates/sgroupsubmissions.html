@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Group {{ group_id }} submitted {{sg_submissions_len}} submissions</p>
+
+{% for sg_submission in sg_submissions %}
+        
+        
+        
+        <p>{{ sg_submission.timestamp }} | {{sg_submission.result}} </p>
+            
+            
+            {% endfor %}
+
+
+{% endblock %}

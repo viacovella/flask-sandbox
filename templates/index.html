@@ -12,16 +12,29 @@ window.onload = timedRefresh(5000);
 //   -->
 </script>
 
-<p>{{ currdt }}</p>        
+<table>
+    <tr>
+      <th>Timestamp</th>
+      <th>Group</th>
+      <th>Score</th>
+    </tr>
 
 {% for submission in submissions %}
         
+
+    <tr>
+      <td>{{ submission[2] }}</td>
+      <td><a href="{{ url_for('RetrieveSingleGroup',id=submission[1])}}">{{ submission[1] }}</a></td>
+      <td>{{ submission[0] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+
         
-        
-        <p>{{ submission.group_id }} | {{submission.result}} </p>
+         
             
-            
-            {% endfor %}
+           
     
     
 {% endblock %}
