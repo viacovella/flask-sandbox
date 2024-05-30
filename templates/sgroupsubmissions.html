@@ -4,14 +4,22 @@
 
 <p>Group {{ group_id }} submitted {{sg_submissions_len}} submissions</p>
 
+<table>
+    <tr>
+      <th>Timestamp</th>
+      <th>Score</th>
+    </tr>
+
 {% for sg_submission in sg_submissions %}
         
-        
-        
-        <p>{{ sg_submission.timestamp }} | {{sg_submission.result}} </p>
-            
-            
-            {% endfor %}
+
+    <tr>
+      <td>{{ sg_submission.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+      <td>{{sg_submission.result}}</td>
+    </tr>
+    {% endfor %}
+  </table>
 
 
+        
 {% endblock %}

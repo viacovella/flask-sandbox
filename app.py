@@ -49,6 +49,10 @@ def RetrieveSingleGroup(id):
         return render_template('sgroupsubmissions.html', group_id=id, sg_submissions = sg_submissions, sg_submissions_len=len(sg_submissions))
     return f"Group {id} did not submit anything"
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 # CRUD operations
 #### CREATE

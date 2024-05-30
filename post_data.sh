@@ -10,3 +10,4 @@
 #}
 
 curl -X POST -H "Content-Type: application/json" -d @$1 'http://localhost:5000/group/create/'
+echo 
