@@ -36,7 +36,7 @@ def index():
     submissions = list()
     for group_id in list(dict.fromkeys([submission.group_id for submission in Submission.query.order_by(Submission.group_id).all()])):
         curr_sub=Submission.query.filter_by(group_id=group_id).order_by(Submission.timestamp.desc()).first()
-        submissions.append([curr_sub.result,curr_sub.group_id, curr_sub.timestamp.strftime('%Y-%m-%d %H:%M')])
+        submissions.append([curr_sub.result,curr_sub.group_id, curr_sub.timestamp.strftime('%Y-%m-%d %H:%M:%S')])
     submissions.sort(reverse=True)
     print(submissions)
     return render_template('index.html', submissions = submissions)
@@ -74,7 +74,7 @@ def create():
         if 'result' in request_data:
             result = request_data['result']
     
-    asubmission = Submission(group_id=int(group_id),group_hash=group_hash,result=float(result))
+    asubmission = Submission(group_id=int(group_id),timestamp=datetime.now(), group_hash=group_hash,result=float(result))
     db.session.add(asubmission)
     db.session.commit()
     

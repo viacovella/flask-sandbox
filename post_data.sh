@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo Gday
 # USAGE
 # ./post_data.sh <filename.json>
 # where filename.json is a json file structured as follows:
